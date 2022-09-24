@@ -16,37 +16,38 @@ class _TestPageState extends State<TestPage> {
     "https://images.pexels.com/photos/13496827/pexels-photo-13496827.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   ];
 
-
-  List data = [
+  List<Map<String, dynamic>> data = [
     {
       "id": 1,
       "name": "Imagen 1",
-      "image": "https://images.pexels.com/photos/13054203/pexels-photo-13054203.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "image":
+          "https://images.pexels.com/photos/13054203/pexels-photo-13054203.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
       "id": 2,
       "name": "Imagen 2",
-      "image": "https://images.pexels.com/photos/13684853/pexels-photo-13684853.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "image":
+          "https://images.pexels.com/photos/13684853/pexels-photo-13684853.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
       "id": 3,
       "name": "Imagen 3",
-      "image": "https://images.pexels.com/photos/13252401/pexels-photo-13252401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "image":
+          "https://images.pexels.com/photos/13252401/pexels-photo-13252401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
       "id": 4,
       "name": "Imagen 4",
-      "image": "https://images.pexels.com/photos/13522034/pexels-photo-13522034.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "image":
+          "https://images.pexels.com/photos/13522034/pexels-photo-13522034.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
       "id": 5,
       "name": "Imagen 5",
-      "image": "https://images.pexels.com/photos/13496827/pexels-photo-13496827.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "image":
+          "https://images.pexels.com/photos/13496827/pexels-photo-13496827.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
   ];
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -56,8 +57,14 @@ class _TestPageState extends State<TestPage> {
       ),
       body: Column(
         children: [
+          Text(
+            "${data[index]["name"]} (${data[index]["id"]})",
+            style: const TextStyle(
+              fontSize: 20.0
+            ),
+          ),
           Image.network(
-            images[index],
+            data[index]["image"],
             width: double.infinity,
             height: 300,
             fit: BoxFit.cover,
@@ -68,9 +75,7 @@ class _TestPageState extends State<TestPage> {
               ElevatedButton(
                 onPressed: () {
                   index--;
-                  setState(() {
-
-                  });
+                  setState(() {});
                 },
                 child: Text(
                   "Anterior",
@@ -79,9 +84,7 @@ class _TestPageState extends State<TestPage> {
               ElevatedButton(
                 onPressed: () {
                   index++;
-                  setState(() {
-
-                  });
+                  setState(() {});
                 },
                 child: Text(
                   "Siguiente",
