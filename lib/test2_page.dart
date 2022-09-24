@@ -8,6 +8,10 @@ class Test2Page extends StatefulWidget {
 }
 
 class _Test2PageState extends State<Test2Page> {
+  double valueRedSlider = 0;
+  double valueGreenSlider = 0;
+  double valueBlueSlider = 0;
+
   double valueSlider = 100.0;
   bool isTitleBold = true;
   bool isDescriptionJustify = false;
@@ -37,7 +41,7 @@ class _Test2PageState extends State<Test2Page> {
               textAlign:
                   isDescriptionJustify ? TextAlign.justify : TextAlign.start,
               style: TextStyle(
-                color: Color.fromRGBO(69, 184, 159, 1),
+                color: Color.fromRGBO(valueRedSlider.toInt(), valueGreenSlider.toInt(), valueBlueSlider.toInt(), 1),
               ),
             ),
             const Divider(),
@@ -67,18 +71,36 @@ class _Test2PageState extends State<Test2Page> {
             ),
             const Divider(),
 
+            Text("Red (${valueRedSlider.toInt()})"),
             Slider(
-              value: valueSlider,
+              value: valueRedSlider,
               min: 0,
-              max: 200,
-              onChanged: (double value){
-                valueSlider = value;
-                setState(() {
-
-                });
+              max: 255,
+              onChanged: (double value) {
+                valueRedSlider = value;
+                setState(() {});
               },
             ),
-
+            Text("Green (${valueGreenSlider.toInt()})"),
+            Slider(
+              value: valueGreenSlider,
+              min: 0,
+              max: 255,
+              onChanged: (double value) {
+                valueGreenSlider = value;
+                setState(() {});
+              },
+            ),
+            Text("Blue (${valueBlueSlider.toInt()})"),
+            Slider(
+              value: valueBlueSlider,
+              min: 0,
+              max: 255,
+              onChanged: (double value) {
+                valueBlueSlider = value;
+                setState(() {});
+              },
+            ),
           ],
         ),
       ),
