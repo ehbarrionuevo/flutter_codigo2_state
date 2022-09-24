@@ -1,4 +1,5 @@
 import 'package:codigo2_state/home_page.dart';
+import 'package:codigo2_state/test2_page.dart';
 import 'package:codigo2_state/test_page.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: TestPage(),
+      home: Test2Page(),
     );
   }
 }
