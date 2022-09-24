@@ -6,6 +6,16 @@ class TestPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Images"),
+      ),
+      body: Column(
+        children: [
+          //Image.network("https://images.pexels.com/photos/13054203/pexels-photo-13054203.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",),
+          Image.asset("assets/images/image1.jpeg"),
+        ],
+      ),
+    );
   }
 }
