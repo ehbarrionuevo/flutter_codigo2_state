@@ -8,6 +8,7 @@ class Test2Page extends StatefulWidget {
 }
 
 class _Test2PageState extends State<Test2Page> {
+  double valueSlider = 100.0;
   bool isTitleBold = true;
   bool isDescriptionJustify = false;
 
@@ -35,6 +36,9 @@ class _Test2PageState extends State<Test2Page> {
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
               textAlign:
                   isDescriptionJustify ? TextAlign.justify : TextAlign.start,
+              style: TextStyle(
+                color: Color.fromRGBO(69, 184, 159, 1),
+              ),
             ),
             const Divider(),
             // Checkbox(
@@ -58,11 +62,23 @@ class _Test2PageState extends State<Test2Page> {
               value: isDescriptionJustify,
               onChanged: (bool? value) {
                 isDescriptionJustify = value!;
+                setState(() {});
+              },
+            ),
+            const Divider(),
+
+            Slider(
+              value: valueSlider,
+              min: 0,
+              max: 200,
+              onChanged: (double value){
+                valueSlider = value;
                 setState(() {
 
                 });
               },
             ),
+
           ],
         ),
       ),
